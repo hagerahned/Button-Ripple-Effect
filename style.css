@@ -1,0 +1,45 @@
+body{
+    margin: 0;   /*  Internal displacement*/
+    display: flex;  /* Horizontal Flexible */ 
+    justify-content: center;  /* Up in the middle */
+    height: 100vh;   
+    align-items: center;  /*center Vertical */
+    background-color: aliceblue; 
+    font-family: sans-serif; 
+}
+
+
+.putton{
+    background-color: pink;  
+    padding: 20px 40px; /* External displacement*/
+    border-radius: 5px; /*It controls the properties of the shape and accepts four directions from you*/ 
+    box-shadow: 0 4px 8px rgba(0,0,0,.3);  
+    text-decoration: none; /*remove inline*/
+    color: black; 
+    position: relative;  
+    overflow: hidden; /*hide the increase*/
+} 
+
+.putton span{
+    position: relative;  
+    z-index: 1;  /*To make the item the last one*/
+}
+
+
+.putton::before{ 
+    content: ""; /*To invoke a theme written in html*/
+    position: absolute; /*الابن*/
+    background-color: orangered; 
+    width: 0; 
+    height: 0;  
+    left:var(--xPos) ; 
+    top:var(--yPos); 
+    transform: translate(-50%, -50%); 
+    border-radius: 50%;  
+    transition: width .5s, height 0.5s;  
+}
+
+.putton:hover::before{
+    width: 300px;   
+    height: 300px;  
+}
